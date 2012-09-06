@@ -32,6 +32,7 @@ class Precious::App
   use ReadOnlyApp
 
   dir = File.dirname(File.expand_path(__FILE__))
+  site_title = Config.title
 
   set :mustache, {
     # Mustache templates live here
@@ -40,7 +41,7 @@ class Precious::App
 end
 
 class Precious::Views::Page
-  def title
+  def site_title
     Config.title
   end
 end
