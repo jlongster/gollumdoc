@@ -69,6 +69,10 @@ opts = OptionParser.new do |opts|
     wiki_options[:site_title] = title
   end
 
+  opts.on("--read-only", "Make the site read-only.") do
+    wiki_options[:read_only] = true
+  end
+
   opts.on("--mathjax", "Enables mathjax.") do
     options['mathjax'] = true
   end
@@ -137,8 +141,24 @@ if options['irb']
   end
 else
   require 'frontend/app'
-  Precious::App.set(:gollum_path, gollum_path)
-  Precious::App.set(:wiki_options, wiki_options)
+
+  if wiki_options[:read_only]
+    app = ReadOnlyApp
+
+    # What the hell, I have to do this here because I don't have the
+    # read_only var yet in app.rb and it won't let me define a class
+    # within a function.
+    class Precious::Views::Layout
+      def read_only
+        ReadOnlyApp.settings.wiki_options[:read_only]
+      end
+    end
+  else
+    app = Precious::App
+  end
+
+  app.set(:gollum_path, gollum_path)
+  app.set(:wiki_options, wiki_options)
 
   if cfg = options['config']
     # If the path begins with a '/' it will be considered an absolute path,
@@ -147,5 +167,5 @@ else
     require cfg
   end
 
-  Precious::App.run!(options)
+  app.run!(options)
 end

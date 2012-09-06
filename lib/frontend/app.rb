@@ -1,7 +1,16 @@
 require 'gollum/frontend/app'
 require 'gollum/frontend/views/page'
 
-class ReadOnlyApp < Sinatra::Base
+class Precious::App
+  dir = File.dirname(File.expand_path(__FILE__))
+
+  set :mustache, {
+    # Mustache templates live here
+    :templates => "#{dir}/templates",
+  }
+end
+
+class ReadOnlyApp < Precious::App
   get '/edit/*' do
     "You cannot edit pages in read-only mode"
   end
@@ -25,17 +34,6 @@ class ReadOnlyApp < Sinatra::Base
   post '/revert/:page/*' do
     "You cannot revert pages in read-only mode"
   end
-end
-
-class Precious::App
-  use ReadOnlyApp
-
-  dir = File.dirname(File.expand_path(__FILE__))
-
-  set :mustache, {
-    # Mustache templates live here
-    :templates => "#{dir}/templates",
-  }
 end
 
 class Precious::Views::Page
