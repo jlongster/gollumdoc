@@ -1,0 +1,6 @@
+
+module Config
+  def Config.title
+      "Nunjucks"
+  end
+end

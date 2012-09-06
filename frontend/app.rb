@@ -1,4 +1,6 @@
 require 'gollum/frontend/app'
+require 'gollum/frontend/views/page'
+require 'config'
 
 class ReadOnlyApp < Sinatra::Base
   get '/edit/*' do
@@ -35,4 +37,10 @@ class Precious::App
     # Mustache templates live here
     :templates => "#{dir}/templates",
   }
+end
+
+class Precious::Views::Page
+  def title
+    Config.title
+  end
 end
