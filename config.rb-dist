@@ -1,6 +1,0 @@
-
-module Config
-  def Config.title
-      "Site Title"
-  end
-end

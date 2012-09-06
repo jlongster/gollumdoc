@@ -1,6 +1,5 @@
 require 'gollum/frontend/app'
 require 'gollum/frontend/views/page'
-require 'config'
 
 class ReadOnlyApp < Sinatra::Base
   get '/edit/*' do
@@ -32,7 +31,6 @@ class Precious::App
   use ReadOnlyApp
 
   dir = File.dirname(File.expand_path(__FILE__))
-  site_title = Config.title
 
   set :mustache, {
     # Mustache templates live here
@@ -42,6 +40,6 @@ end
 
 class Precious::Views::Page
   def site_title
-    Config.title
+    Precious::App.settings.wiki_options[:site_title] or "Set a title"
   end
 end

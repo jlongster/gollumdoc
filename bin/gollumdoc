@@ -16,7 +16,6 @@ HELP
 require 'optparse'
 require 'rubygems'
 require 'gollum'
-require 'config'
 
 exec = {}
 options = { 'port' => 4567, 'bind' => '0.0.0.0' }
@@ -64,6 +63,10 @@ opts = OptionParser.new do |opts|
 
   opts.on("--no-live-preview", "Disables livepreview.") do
     wiki_options[:live_preview] = false
+  end
+
+  opts.on("--site-title [TITLE]", "Sets the site's title.") do |title|
+    wiki_options[:site_title] = title
   end
 
   opts.on("--mathjax", "Enables mathjax.") do
