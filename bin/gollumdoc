@@ -153,8 +153,25 @@ else
         ReadOnlyApp.settings.wiki_options[:read_only]
       end
     end
+
+    # I don't really know what I'm doing, but this has to be
+    # duplicated (see below)
+    class Precious::Views::Page
+      def site_title
+        ReadOnlyApp.settings.wiki_options[:site_title] or "Set a title"
+      end
+    end
+
   else
-    app = Precious::App
+    app = DocApp
+
+    # I don't really know what I'm doing, but this has to be duplicated
+    class Precious::Views::Page
+      def site_title
+        DocApp.settings.wiki_options[:site_title] or "Set a title"
+      end
+    end
+
   end
 
   app.set(:gollum_path, gollum_path)

@@ -1,16 +1,22 @@
 require 'gollum/frontend/app'
 require 'gollum/frontend/views/page'
 
-class Precious::App
+class DocApp < Precious::App
   dir = File.dirname(File.expand_path(__FILE__))
 
   set :mustache, {
     # Mustache templates live here
     :templates => "#{dir}/templates",
   }
+
+  get '/css/custom.css' do
+    if File.exist?('custom.css')
+      File.read('custom.css')
+    end
+  end
 end
 
-class ReadOnlyApp < Precious::App
+class ReadOnlyApp < DocApp
   get '/edit/*' do
     "You cannot edit pages in read-only mode"
   end
@@ -33,11 +39,5 @@ class ReadOnlyApp < Precious::App
 
   post '/revert/:page/*' do
     "You cannot revert pages in read-only mode"
-  end
-end
-
-class Precious::Views::Page
-  def site_title
-    Precious::App.settings.wiki_options[:site_title] or "Set a title"
   end
 end

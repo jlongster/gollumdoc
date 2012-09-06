@@ -8,5 +8,5 @@ for hosting documentation.
 It adds:
 
 * read-only mode
-* configurable site title display in upper-left
-* moves the page's title into the article
+* configurable site title display in upper-left (instead of page title)
+* add a custom css file for theming (TODO)
