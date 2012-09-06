@@ -1,6 +1,6 @@
 
 module Config
   def Config.title
-      "Nunjucks"
+      "Site Title"
   end
 end
