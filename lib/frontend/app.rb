@@ -10,8 +10,8 @@ class DocApp < Precious::App
   }
 
   get '/css/custom.css' do
-    if File.exist?('custom.css')
-      File.read('custom.css')
+    if File.exists?('custom.css') then
+      send_file 'custom.css'
     end
   end
 end
