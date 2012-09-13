@@ -9,10 +9,8 @@ class DocApp < Precious::App
     :templates => "#{dir}/templates",
   }
 
-  get '/css/custom.css' do
-    if File.exists?('custom.css') then
-      send_file 'custom.css'
-    end
+  get '/static/*' do
+    send_file 'static/' + params[:splat].first
   end
 end
 
