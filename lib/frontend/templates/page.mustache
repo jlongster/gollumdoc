@@ -6,6 +6,7 @@ Mousetrap.bind(['e'], function( e ) {
 });
 </script>
 <div id="wiki-wrapper" class="page">
+<div id="head-wrapper">
 <div id="head">
   <h1><a href="/">{{& site_title }}</a></h1>
   <ul class="actions">
@@ -27,6 +28,16 @@ Mousetrap.bind(['e'], function( e ) {
     <li class="minibutton"><a href="{{base_url}}/history/{{escaped_url_path}}"
        class="action-page-history">History</a></li>
   </ul>
+</div>
+
+    <div id="navbar">
+      <ul>
+        <li><a href="/">Overview</a></li>
+        <li><a href="/templating">Templating Documentation</a></li>
+        <li><a href="/api">API Documentation</a></li>
+      </ul>
+    </div>
+
 </div>
 <div id="wiki-content">
 <div class="{{#has_header}}has-header{{/has_header}}{{#has_footer}} has-footer{{/has_footer}}{{#has_sidebar}} has-rightbar{{/has_sidebar}}{{#has_toc}} has-toc{{/has_toc}}">

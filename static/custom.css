@@ -1,0 +1,73 @@
+
+body {
+    background: url(/static/nunjucks-watermark.png) 0 0 no-repeat;
+}
+
+.biglogo {
+    margin-top: 2em;
+}
+
+h1 a, h1 a:visited, h1 a:active {
+    color: black
+}
+
+.tagline {
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+#wiki-wrapper {
+    width: auto;
+}
+
+#head-wrapper {
+    background-color: brown;
+    padding-top: 4em;
+    margin-bottom: 1.5em;
+}
+
+#head {
+    margin: 0;
+    border: 0;
+}
+
+#head, #wiki-content, #footer {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.related {
+  background-color: #F7F7F7;
+  padding: 5px 10px;
+  margin: 0;
+}
+.related-title {
+  color: #888;
+  font-size: 14px;
+  line-height: 1.6;
+  padding: 2px;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 3px;
+}
+.related ul {
+  padding-left: 10px;
+  margin: 0;
+}
+.related>ul {
+  margin-left: 10px;
+  font-size: 17px;
+}
+.related ul ul {
+  font-size: 15px;
+}
+.related ul ul ul {
+  font-size: 14px;
+}
+.related ul li{
+  margin: 0;
+}
+
+.markdown-body li {
+    margin: 5px 0;
+}
