@@ -77,11 +77,17 @@ Mousetrap.bind(['e'], function( e ) {
 
 </div>
 <div id="footer">
+   <div class="twitter">
+     <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://nunjucks.jlongster.com/" data-text="I found a better node.js templating solution!" data-via="jlongster">Tweet</a>
+     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+   </div>
+
   <p id="last-edit">Last edited by <b>{{author}}</b>, {{date}}</p>
   {{^read_only}}
   <p>
     <a id="delete-link" href="{{base_url}}/{{escaped_url_path}}" data-confirm="Are you sure you want to delete this page?"><span>Delete this Page</span></a>
   </p>
   {{/read_only}}
+
 </div>
 </div>
